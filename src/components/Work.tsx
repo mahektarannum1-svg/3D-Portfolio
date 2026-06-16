@@ -5,32 +5,25 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "CallHQ",
-    category: "Voice AI Calling Platform",
-    tools: "Voice AI, Calling Automation, CRM Integrations",
-    image: "/images/callhq.png",
-    link: "https://callhq.ai",
+    title: "Smart Movable Road Divider",
+    category: "IoT & Traffic Automation",
+    tools: "IoT, GPS, Sensors, Solar Automation",
+    image: "/images/divider.png",
+    link: "#",
   },
   {
-    title: "Whatsapp Automation",
-    category: "WABA Application",
-    tools: "WhatsApp Business API, Workflow Automation, Notifications",
-    image: "/images/whatsapp.png",
-    link: "https://whatsapp.callhq.ai",
+    title: "Automatic Medicine Reminder",
+    category: "Embedded & Hardware",
+    tools: "Arduino Uno, Embedded C, Alert Systems",
+    image: "/images/reminder.png",
+    link: "#",
   },
   {
-    title: "Broki",
-    category: "Real Estate Platform for FnB Industry",
-    tools: "Property Discovery, Lead Management, Marketplace Workflows",
-    image: "/images/broki.png",
-    link: "https://broki.in",
-  },
-  {
-    title: "Orrdr.com",
-    category: "Ecommerce Platform and Mobile App",
-    tools: "Ecommerce, Mobile Experience, Order Management",
-    image: "/images/orrdr.png",
-    link: "https://orrdr.com",
+    title: "Medislot Doctor Booking",
+    category: "Web App & Backend",
+    tools: "Java, Spring Boot, Hibernate, MySQL, HTML/CSS/JS",
+    image: "/images/medislot.png",
+    link: "#",
   },
 ];
 
