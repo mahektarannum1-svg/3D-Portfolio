@@ -1,6 +1,11 @@
 import "./styles/Landing.css";
 
 const Landing = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    window.location.hash = "#contact";
+  };
+
   return (
     <div className="landing-section" id="landingDiv">
       {/* Atmospheric background overlay */}
@@ -16,26 +21,21 @@ const Landing = () => {
         </h1>
 
         <p className="landing-sub">
-          Building robust backend systems and intelligent IoT solutions<br />
-          that bridge software and hardware.
+          Building robust backend systems and intelligent IoT solutions that bridge software and hardware.
         </p>
 
-        <div className="landing-cta-group">
-          <a
-            href="#contact"
-            className="btn-primary"
+        <form onSubmit={handleSubmit} className="hero-email-capture">
+          <input
+            type="email"
+            placeholder="Your email address"
+            className="hero-email-input"
+            required
             data-cursor="disable"
-          >
+          />
+          <button type="submit" className="btn-primary hero-email-btn" data-cursor="disable">
             Get in touch
-          </a>
-          <a
-            href="#work"
-            className="btn-ghost"
-            data-cursor="disable"
-          >
-            View my work
-          </a>
-        </div>
+          </button>
+        </form>
       </div>
 
       {/* Scroll indicator */}
