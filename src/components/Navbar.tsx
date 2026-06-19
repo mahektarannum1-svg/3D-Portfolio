@@ -39,21 +39,27 @@ const Navbar = () => {
       ScrollSmoother.refresh(true);
     });
   }, []);
+
   return (
-    <>
-      <div className="header">
-        <a href="/#" className="navbar-title" data-cursor="disable">
-          MT
-        </a>
-        <a
-          href="https://www.linkedin.com/in/mahek-tarannum/"
-          className="navbar-connect"
-          data-cursor="disable"
-          target="_blank"
-          rel="noreferrer"
-        >
-          linkedin.com/in/mahek-tarannum
-        </a>
+    <div className="header">
+      {/* Logo / Brand */}
+      <a href="/#" className="navbar-title" data-cursor="disable">
+        MT
+      </a>
+
+      {/* Center LinkedIn link */}
+      <a
+        href="https://www.linkedin.com/in/mahek-tarannum/"
+        className="navbar-connect"
+        data-cursor="disable"
+        target="_blank"
+        rel="noreferrer"
+      >
+        linkedin.com/in/mahek-tarannum
+      </a>
+
+      {/* Nav links + pill CTA */}
+      <div className="navbar-right">
         <ul>
           <li>
             <a data-href="#about" href="#about">
@@ -71,12 +77,17 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
+        <a
+          href="https://www.linkedin.com/in/mahek-tarannum/"
+          className="navbar-pill-cta"
+          data-cursor="disable"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Connect
+        </a>
       </div>
-
-      <div className="landing-circle1"></div>
-      <div className="landing-circle2"></div>
-      <div className="nav-fade"></div>
-    </>
+    </div>
   );
 };
 

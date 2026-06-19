@@ -1,20 +1,31 @@
+/* ── HoverLinks — Mercury Theme ── */
 .hover-link {
   position: relative;
   display: flex;
   text-wrap: nowrap;
   overflow: hidden;
+  font-family: var(--font-arcadia);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-w480);
+  letter-spacing: 0.12em;
+  color: var(--color-starlight);
+  text-transform: uppercase;
 }
+
 .hover-in {
   position: relative;
-  transition: 0.3s;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .hover-in div {
   display: flex;
   position: absolute;
   top: 100%;
   left: 0;
+  color: var(--color-silver);
 }
+
 .hover-link:hover .hover-in {
   transform: translateY(-100%);
-  color: var(--accentColor);
+  color: var(--color-silver);
 }

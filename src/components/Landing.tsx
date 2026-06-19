@@ -1,34 +1,49 @@
-import { PropsWithChildren } from "react";
 import "./styles/Landing.css";
 
-const Landing = ({ children }: PropsWithChildren) => {
+const Landing = () => {
   return (
-    <>
-      <div className="landing-section" id="landingDiv">
-        <div className="landing-container">
-          <div className="landing-intro">
-            <h2>Hello! I'm</h2>
-            <h1>
-              MAHEK
-              <br />
-              <span>TARANNUM</span>
-            </h1>
-          </div>
-          <div className="landing-info">
-            <h3>Java Developer &</h3>
-            <h2 className="landing-info-h2">
-              <div className="landing-h2-1">Software</div>
-              <div className="landing-h2-2">IoT</div>
-            </h2>
-            <h2>
-              <div className="landing-h2-info">IoT</div>
-              <div className="landing-h2-info-1">Software</div>
-            </h2>
-          </div>
+    <div className="landing-section" id="landingDiv">
+      {/* Atmospheric background overlay */}
+      <div className="landing-bg-overlay" />
+
+      {/* Hero content — centered */}
+      <div className="landing-hero-content">
+        <p className="landing-eyebrow">Software Engineer &amp; IoT Developer</p>
+
+        <h1 className="landing-display">
+          MAHEK<br />
+          <span>TARANNUM</span>
+        </h1>
+
+        <p className="landing-sub">
+          Building robust backend systems and intelligent IoT solutions<br />
+          that bridge software and hardware.
+        </p>
+
+        <div className="landing-cta-group">
+          <a
+            href="#contact"
+            className="btn-primary"
+            data-cursor="disable"
+          >
+            Get in touch
+          </a>
+          <a
+            href="#work"
+            className="btn-ghost"
+            data-cursor="disable"
+          >
+            View my work
+          </a>
         </div>
-        {children}
       </div>
-    </>
+
+      {/* Scroll indicator */}
+      <div className="landing-scroll-hint">
+        <span>Scroll</span>
+        <div className="landing-scroll-line" />
+      </div>
+    </div>
   );
 };
 

@@ -1,3 +1,4 @@
+/* ── Social Icons — Mercury Theme ── */
 .icons-section {
   position: fixed;
   max-width: var(--cMaxWidth);
@@ -7,30 +8,18 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
 .social-icons {
   position: absolute;
   left: -20px;
-  bottom: 20px;
+  bottom: var(--spacing-20);
   display: none;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--spacing-8);
   z-index: 999;
-  padding: 10px;
+  padding: var(--spacing-12);
 }
-.social-icons:hover {
-  transition: 0.3s;
-  color: var(--backgroundColor);
-}
-.social-icons a:hover {
-  color: var(--backgroundColor);
-  /* transform: scale(1.2); */
-}
-.social-icons span {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  display: flex;
-}
+
 .social-icons a {
   --siLeft: 50%;
   --siTop: 50%;
@@ -39,65 +28,87 @@
   top: var(--siTop, 50%);
   transform: translate(-50%, -50%);
   display: flex;
-  font-size: 23px;
+  font-size: 20px;
+  color: var(--color-lead);
   will-change: left, top;
-  transition: transform 0.3s ease-out;
+  transition: color 0.2s ease, transform 0.3s ease-out;
 }
+
+.social-icons a:hover {
+  color: var(--color-starlight);
+  opacity: 1;
+}
+
+.social-icons span {
+  width: 44px;
+  height: 44px;
+  position: relative;
+  display: flex;
+}
+
+/* Resume / Download button */
 .resume-button {
   position: absolute;
   z-index: 99;
   display: flex;
-  gap: 5px;
-  bottom: 40px;
+  gap: var(--spacing-4);
+  bottom: var(--spacing-40);
   right: 0;
   width: auto;
   text-wrap: nowrap;
-  letter-spacing: 4px;
-  font-size: 15px;
+  letter-spacing: 0.14em;
+  font-family: var(--font-arcadia);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-w480);
   line-height: 15px;
-  font-weight: 600;
-  color: #5e5e5e;
+  color: var(--color-lead);
   cursor: pointer;
-  transition: 0.5s;
+  transition: color 0.2s ease;
   transform-origin: left bottom;
   transform: translateX(100%) rotateZ(-90deg);
+  text-transform: uppercase;
+  text-decoration: none;
 }
+
 .resume-button:hover {
-  color: #fff;
+  color: var(--color-starlight);
+  opacity: 1;
 }
+
 div.resume-button span {
-  color: #fff;
+  color: var(--color-starlight);
   font-size: 17px;
   margin-top: -1px;
   display: flex;
   align-items: center;
 }
+
+/* Debug check-line — hidden */
 .check-line {
-  position: fixed;
-  top: 655px;
-  left: 0;
-  height: 1px;
-  background-color: #ffffff;
-  width: 100%;
-  z-index: 99999;
+  display: none;
 }
+
+/* ── Responsive ── */
 @media only screen and (min-width: 900px) {
   .social-icons {
     display: flex;
-    gap: 20px;
+    gap: var(--spacing-20);
   }
+
   .social-icons a {
-    font-size: 28px;
+    font-size: 22px;
   }
 }
+
 @media only screen and (min-width: 768px) {
   .resume-button {
     transform: none;
-    font-size: 20px;
-    line-height: 20px;
+    font-size: var(--text-body-sm);
+    line-height: var(--text-body-sm);
   }
+
   div.resume-button span {
-    font-size: 23px;
+    font-size: 20px;
     margin-top: -1.5px;
   }
 }

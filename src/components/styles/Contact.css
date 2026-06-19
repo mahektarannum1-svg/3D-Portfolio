@@ -1,116 +1,149 @@
+/* ── Contact Section — Mercury Theme ── */
 .contact-section {
   margin: auto;
-  padding-bottom: 100px;
-  margin-top: 100px;
+  padding: var(--spacing-112) 0 var(--spacing-80);
   position: relative;
   z-index: 2;
-  background-color: var(--backgroundColor);
+  background-color: var(--color-deep-space);
+  border-top: 1px solid var(--color-lead);
 }
 
+/* "Contact" heading */
 .contact-section h3 {
-  font-size: 60px;
-  font-weight: 400;
+  font-family: var(--font-arcadiadisplay);
+  font-size: clamp(36px, 5vw, var(--text-heading-lg));
+  font-weight: var(--font-weight-w360);
+  letter-spacing: 0.01em;
+  color: var(--color-starlight);
+  margin: 0 0 var(--spacing-72) 0;
   text-transform: uppercase;
-  margin: 0;
+  font-feature-settings: "ss01" on;
+  line-height: var(--leading-heading-lg);
 }
 
+/* Three-column layout */
 .contact-flex {
   display: flex;
   justify-content: space-between;
+  gap: var(--spacing-40);
+  align-items: flex-start;
 }
 
+/* Column labels */
 .contact-flex h4 {
-  font-weight: 500;
-  margin: 0;
-  opacity: 0.6;
+  font-family: var(--font-arcadia);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-w480);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-lead);
+  margin: 0 0 var(--spacing-16) 0;
 }
 
 .contact-box {
   display: flex;
   flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1;
 }
 
+/* Body text in contact boxes */
 .contact-flex p {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  font-family: var(--font-arcadia);
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-body-sm);
+  letter-spacing: var(--tracking-body-sm);
+  color: var(--color-silver);
+  margin: 0 0 var(--spacing-16) 0;
 }
 
+/* Social links — Footer Link style */
 a.contact-social {
-  font-size: 25px;
-  border-bottom: 1px solid #ccc;
+  font-family: var(--font-arcadia);
+  font-size: var(--text-subheading);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-silver);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid var(--color-lead);
+  padding-bottom: var(--spacing-16);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  transition: color 0.2s ease, border-color 0.2s ease;
+  margin-bottom: var(--spacing-4);
 }
 
+a.contact-social:hover {
+  color: var(--color-starlight);
+  border-color: var(--color-starlight);
+  opacity: 1;
+}
+
+a.contact-social svg {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* "Designed & Developed by" blurb */
 .contact-box h2 {
-  font-weight: 400;
-  font-size: 23px;
+  font-family: var(--font-arcadiadisplay);
+  font-weight: var(--font-weight-w360);
+  font-size: var(--text-heading-sm);
+  line-height: var(--leading-heading-sm);
+  letter-spacing: 0.01em;
+  color: var(--color-silver);
+  margin: 0 0 var(--spacing-16) 0;
+  font-feature-settings: "ss01" on;
+}
+
+.contact-box h2 > span {
+  color: var(--color-starlight);
+  font-weight: var(--font-weight-w480);
+}
+
+/* Copyright */
+.contact-box h5 {
+  font-family: var(--font-arcadia);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  color: var(--color-lead);
   margin: 0;
 }
 
-.contact-box h2>span {
-  color: var(--accentColor);
-}
-
-.contact-box h5 {
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 20px;
-  display: flex;
-  gap: 10px;
-  opacity: 0.5;
-}
-
+/* ── Responsive ── */
 @media only screen and (max-width: 1600px) {
-  .contact-section h3 {
-    font-size: 50px;
-  }
-
-  .contact-box h2 {
-    font-size: 20px;
-  }
-
-  a.contact-social {
-    font-size: 22px;
-  }
+  .contact-section h3 { font-size: 48px; }
+  .contact-box h2     { font-size: var(--text-body); }
+  a.contact-social    { font-size: var(--text-body); }
 }
 
 @media only screen and (max-width: 1300px) {
-  .contact-section h3 {
-    font-size: 40px;
-  }
-
-  .contact-box h2 {
-    font-size: 18px;
-  }
-
-  a.contact-social {
-    font-size: 20px;
-  }
-
-  .contact-flex p {
-    margin-top: 0px;
-  }
+  .contact-section h3 { font-size: 38px; }
+  .contact-box h2     { font-size: var(--text-body-sm); }
+  a.contact-social    { font-size: var(--text-body-sm); }
 }
 
 @media only screen and (max-width: 900px) {
   .contact-flex {
     flex-direction: column;
-    gap: 40px;
-  }
-
-  .contact-flex p {
-    margin-bottom: 0px;
-  }
-
-  .contact-flex h4 {
-    margin-top: 20px;
+    gap: var(--spacing-40);
   }
 
   .contact-section {
-    margin-top: 50px;
-    padding-bottom: 50px;
+    padding: var(--spacing-72) 0 var(--spacing-56);
   }
 
   .contact-container {
     width: calc(100% - 25px);
+  }
+
+  .contact-section h3 {
+    margin-bottom: var(--spacing-40);
   }
 }

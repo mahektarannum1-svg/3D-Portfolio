@@ -1,392 +1,265 @@
+/* ── WhatIDo Section — Mercury Theme ── */
 .whatIDO {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  place-items: center;
   position: relative;
-  opacity: 1;
-  height: 100vh;
   width: var(--cWidth);
-  max-width: 1920px;
+  max-width: var(--cMaxWidth);
   margin: auto;
+  padding: var(--spacing-80) 0;
+  min-height: auto;
   z-index: 9;
+  gap: var(--spacing-72);
+  background-color: var(--color-midnight-slate);
 }
+
+/* ── Left: Section title ── */
 .what-box {
   width: 50%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   position: relative;
   z-index: 9;
 }
-.what-box h2 {
-  font-size: calc(4vw + 25px);
-  line-height: calc(4vw + 20px);
-  font-weight: 600;
-  margin-right: 10%;
-  margin-bottom: 100px;
+
+.what-box h2.title {
+  font-family: var(--font-arcadiadisplay);
+  font-size: clamp(42px, 5vw, var(--text-heading-lg));
+  font-weight: var(--font-weight-w360);
+  line-height: var(--leading-heading-lg);
+  letter-spacing: 0.01em;
+  color: var(--color-starlight);
+  margin: 0;
+  font-feature-settings: "ss01" on;
+  text-transform: uppercase;
 }
 
 .hat-h2 {
-  font-style: italic;
-}
-.do-h2 {
-  color: var(--accentColor);
-}
-.what-box-in {
-  flex-direction: column;
-  height: 500px;
-  margin-left: 200px;
-  position: relative;
-  display: none;
-}
-.what-content {
-  width: 450px;
-  height: 33%;
-  min-height: 50%;
-  transition: 0.5s;
-  /* border: 0.5px dashed rgba(255, 255, 255, 0.3); */
-  position: relative;
-  padding: 50px;
-  box-sizing: border-box;
+  font-style: normal;
+  opacity: 0.5;
 }
 
+.do-h2 {
+  color: var(--color-starlight);
+}
+
+/* ── Right: Feature items list ── */
+.what-box-in {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+/* Each interactive feature link item */
+.what-content {
+  width: 100%;
+  transition: all 0.4s ease;
+  position: relative;
+  padding: var(--spacing-24) 0;
+  border-bottom: 1px solid var(--color-lead);
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.what-content:first-child {
+  border-top: 1px solid var(--color-lead);
+}
+
+/* Hover / active state — surface brightens */
 .what-noTouch:hover,
 .what-content-active {
-  min-height: 67%;
-  padding: 40px 50px;
+  background-color: var(--color-graphite);
+  padding: var(--spacing-32) var(--spacing-24);
 }
 
 .what-noTouch:hover ~ .what-content,
 .what-box-in:hover .what-noTouch:not(:hover),
 .what-content.what-sibling {
-  min-height: 33%;
-  padding: 10px 50px;
+  opacity: 0.5;
 }
-.what-content h3 {
-  font-size: 35px;
-  letter-spacing: 1px;
-  margin: 0;
-}
-.what-content p {
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 200;
-  letter-spacing: 0.7px;
-}
-.what-content h4 {
-  font-weight: 300;
-  letter-spacing: 1px;
-  margin: 0px;
-  font-size: 14px;
-  opacity: 0.3;
-}
-.what-content-in {
-  opacity: 0;
-  animation: whatFlicker 0.5s 1 forwards;
-  animation-delay: 1s;
-}
-@keyframes whatFlicker {
-  0%,
-  25%,
-  35%,
-  60% {
-    opacity: 0;
-  }
 
-  30%,
-  50%,
-  40%,
-  100% {
-    opacity: 1;
-  }
+/* Card title */
+.what-content h3 {
+  font-family: var(--font-arcadiadisplay);
+  font-size: var(--text-heading-sm);
+  font-weight: var(--font-weight-w480);
+  letter-spacing: 0.01em;
+  color: var(--color-starlight);
+  margin: 0 0 var(--spacing-4) 0;
+  font-feature-settings: "ss01" on;
+  line-height: var(--leading-heading-sm);
+  text-transform: uppercase;
 }
-.what-content::before,
-.what-corner::before,
-.what-content::after,
-.what-corner::after {
-  content: "";
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  border: 4px solid #fff;
+
+/* Sub-label */
+.what-content h4 {
+  font-family: var(--font-arcadia);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.01em;
+  margin: 0 0 var(--spacing-12) 0;
+  font-size: var(--text-body-sm);
+  color: var(--color-silver);
+  line-height: var(--leading-body-sm);
+}
+
+/* Body paragraph */
+.what-content p {
+  font-family: var(--font-arcadia);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body-sm);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--tracking-body-sm);
+  color: var(--color-silver);
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
   opacity: 0;
-  animation: whatCorners 0.2s 1 forwards;
-  animation-delay: 0.5s;
 }
-@keyframes whatCorners {
-  100% {
-    opacity: 1;
-  }
+
+.what-noTouch:hover p,
+.what-content-active p {
+  max-height: 200px;
+  opacity: 1;
 }
-.what-content::before {
-  top: -2px;
-  left: -2px;
-  border-right: none;
-  border-bottom: none;
+
+/* Content inner wrapper */
+.what-content-in {
+  height: 100%;
+  overflow: hidden;
 }
-.what-corner::before {
-  top: -2px;
-  right: -2px;
-  border-left: none;
-  border-bottom: none;
+
+/* Skills label */
+.what-content-in h5 {
+  font-family: var(--font-arcadia);
+  font-weight: var(--font-weight-w480);
+  color: var(--color-lead);
+  font-size: var(--text-caption);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: var(--spacing-16) 0 var(--spacing-8) 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
-.what-content::after {
-  bottom: -2px;
-  left: -2px;
-  border-top: none;
-  border-right: none;
+
+.what-noTouch:hover .what-content-in h5,
+.what-content-active .what-content-in h5 {
+  opacity: 1;
 }
-.what-corner::after {
-  bottom: -2px;
-  right: -2px;
-  border-left: none;
-  border-top: none;
+
+/* Tags row */
+.what-content-flex {
+  display: flex;
+  gap: var(--spacing-8);
+  flex-wrap: wrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
+
+.what-noTouch:hover .what-content-flex,
+.what-content-active .what-content-flex {
+  opacity: 1;
+}
+
+/* Individual tag pill */
+.what-tags {
+  font-family: var(--font-arcadia);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-w420);
+  padding: var(--spacing-4) var(--spacing-12);
+  background-color: var(--color-graphite);
+  border: 1px solid var(--color-lead);
+  border-radius: var(--radius-3xl);
+  color: var(--color-silver);
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.what-noTouch:hover .what-tags,
+.what-content-active .what-tags {
+  background-color: rgba(82, 102, 235, 0.12);
+  border-color: rgba(82, 102, 235, 0.35);
+  color: var(--color-starlight);
+}
+
+/* Arrow indicator */
 .what-arrow {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 25px;
-  height: 25px;
-  border: 1px solid #fff;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--color-lead);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
 }
+
+.what-noTouch:hover .what-arrow,
+.what-content-active .what-arrow {
+  border-color: var(--color-mercury-blue);
+}
+
 .what-arrow::before {
   content: "";
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
-  border-left: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  transition: 0.5s;
-  width: 10px;
-  height: 10px;
+  border-left: 1px solid var(--color-lead);
+  border-bottom: 1px solid var(--color-lead);
+  transition: 0.4s;
+  width: 7px;
+  height: 7px;
 }
+
 .what-noTouch:hover .what-arrow::before,
 .what-content-active .what-arrow::before {
   transform: translate(-50%, -20%) rotate(-225deg);
+  border-color: var(--color-mercury-blue);
 }
-.what-border1 {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
-  transition: 0.5s;
-  max-width: 0%;
-  overflow: hidden;
-  opacity: 0.8;
-  animation: whatBorders 1.2s 1 forwards;
-}
-.what-border1 svg {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 450px;
-}
-.what-border2 {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 100%;
-  max-height: 0%;
-  overflow: hidden;
-  transition: 0.5s;
-  opacity: 0.8;
-  animation: whatBorders 1.2s 1 forwards;
-}
-.what-border2 svg {
-  height: 500px;
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-}
-.what-content-in {
-  height: 100%;
-  overflow: hidden;
-}
-.what-content-in h5 {
-  font-weight: 300;
-  opacity: 0.5;
-  font-size: 12px;
-  letter-spacing: 1px;
-  font-family: "Geist", sans-serif;
-  margin-bottom: 5px;
-}
-@keyframes whatBorders {
-  80% {
-    opacity: 0.8;
-  }
-  100% {
-    max-height: 100%;
-    max-width: 100%;
-    opacity: 0.2;
-  }
-}
-.what-content-flex {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
-}
-.what-tags {
-  font-size: 13px;
-  font-weight: 400;
-  padding: 2px 7px;
-  background-color: rgba(255, 255, 255, 0.15);
-  border: 1px solid #ffffff50;
-  border-radius: 30px;
-}
-@media only screen and (max-width: 1600px) {
-  .what-box h2 {
-    margin-right: 18%;
-  }
-}
-@media only screen and (max-width: 1400px) {
-  .what-box h2 {
-    margin-right: 20%;
-  }
-  .what-box-in {
-    height: 400px;
-  }
-  .what-content h3 {
-    font-size: 28px;
-  }
-  .what-content {
-    padding: 30px;
-    width: 400px;
-  }
-  .what-content p {
-    font-size: 13px;
-  }
-  .what-noTouch:hover,
-  .what-content-active {
-    padding: 20px 30px;
-  }
 
-  .what-noTouch:hover ~ .what-content,
-  .what-box-in:hover .what-noTouch:not(:hover),
-  .what-content.what-sibling {
-    padding: 10px 30px;
-  }
-  .what-tags {
-    font-size: 12px;
-  }
+/* Hide old border SVG overlays — no longer needed */
+.what-border1,
+.what-border2,
+.what-corner {
+  display: none;
 }
-@media only screen and (max-width: 1400px) {
-  .what-box-in {
-    margin-left: 50px;
-  }
-  .what-content {
-    width: 380px;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  .whatIDO {
-    height: auto;
-    padding: 50px 0px;
-    padding-bottom: 50px;
-  }
-  .what-box-in {
-    height: 500px;
-    margin-left: -50px;
-  }
-  .what-content {
-    padding: 50px;
-    width: 500px;
-  }
-  .what-content p {
-    font-size: 14px;
-  }
-  .what-noTouch:hover,
-  .what-content-active {
-    min-height: 67%;
-    padding: 50px;
-  }
 
-  .what-noTouch:hover ~ .what-content,
-  .what-box-in:hover .what-noTouch:not(:hover),
-  .what-content.what-sibling {
-    min-height: 33%;
-    padding: 10px 50px;
-  }
-}
+/* ── Responsive ── */
 @media only screen and (max-width: 900px) {
   .whatIDO {
     flex-direction: column;
-  }
-  .what-box h2 {
-    margin: 50px 0;
-    font-size: 55px;
-    line-height: 53px;
-  }
-  .what-box:first-child {
-    justify-content: left;
-  }
-  .what-box:last-child {
-    height: 500px;
-  }
-  .what-box {
-    width: 500px;
-    max-width: calc(100% - 50px);
-    margin: auto;
-  }
-  .what-content {
-    width: 100%;
-  }
-  .what-box-in {
-    margin-left: 0px;
-    height: 450px;
-  }
-  .what-content h5,
-  .what-content-flex {
-    opacity: 0;
-    transition: 0.3s;
-  }
-  .what-noTouch:hover h5,
-  .what-content-active h5,
-  .what-noTouch:hover .what-content-flex,
-  .what-content-active .what-content-flex {
-    opacity: 1;
-  }
-  .what-content {
-    padding: 30px;
-  }
-  .what-content p {
-    font-size: 11px;
-  }
-  .what-noTouch:hover,
-  .what-content-active {
-    padding: 10px 30px;
-  }
-  .what-tags {
-    font-size: 11px;
+    gap: var(--spacing-40);
+    padding: var(--spacing-56) 0;
   }
 
-  .what-noTouch:hover ~ .what-content,
-  .what-box-in:hover .what-noTouch:not(:hover),
-  .what-content.what-sibling {
-    padding: 5px 30px;
+  .what-box,
+  .what-box-in {
+    width: 100%;
   }
-  .what-content h3 {
-    font-size: 25px;
+
+  .what-box h2.title {
+    font-size: 42px;
   }
 }
+
 @media only screen and (max-width: 550px) {
   .whatIDO {
-    place-items: inherit;
-    align-items: start;
-    justify-content: left;
-  }
-  .what-box {
-    max-width: calc(100% - 25px);
-    margin: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 }
+
 @media only screen and (min-width: 1950px) {
-  .what-box h2 {
+  .what-box h2.title {
     font-size: 7rem;
     line-height: 6.8rem;
   }

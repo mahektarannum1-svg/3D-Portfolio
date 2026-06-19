@@ -7,6 +7,7 @@ const WhatIDo = () => {
   const setRef = (el: HTMLDivElement | null, index: number) => {
     containerRef.current[index] = el;
   };
+
   useEffect(() => {
     if (ScrollTrigger.isTouch) {
       containerRef.current.forEach((container) => {
@@ -24,8 +25,10 @@ const WhatIDo = () => {
       });
     };
   }, []);
+
   return (
     <div className="whatIDO">
+      {/* Left — Section Title */}
       <div className="what-box">
         <h2 className="title">
           W<span className="hat-h2">HAT</span>
@@ -34,65 +37,24 @@ const WhatIDo = () => {
           </div>
         </h2>
       </div>
+
+      {/* Right — Interactive Feature List */}
       <div className="what-box">
         <div className="what-box-in">
-          <div className="what-border2">
-            <svg width="100%">
-              <line
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="100%"
-                stroke="white"
-                strokeWidth="2"
-                strokeDasharray="7,7"
-              />
-              <line
-                x1="100%"
-                y1="0"
-                x2="100%"
-                y2="100%"
-                stroke="white"
-                strokeWidth="2"
-                strokeDasharray="7,7"
-              />
-            </svg>
-          </div>
+
+          {/* Item 01 — Java & Backend */}
           <div
             className="what-content what-noTouch"
             ref={(el) => setRef(el, 0)}
           >
-            <div className="what-border1">
-              <svg height="100%">
-                <line
-                  x1="0"
-                  y1="0"
-                  x2="100%"
-                  y2="0"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-              </svg>
-            </div>
-            <div className="what-corner"></div>
-
             <div className="what-content-in">
-              <h3>JAVA &amp; BACKEND</h3>
+              <h3>Java &amp; Backend</h3>
               <h4>Building Robust Web Applications</h4>
               <p>
-                Specializing in backend services, RESTful APIs, and database integration using Spring and enterprise Java frameworks.
+                Specializing in backend services, RESTful APIs, and database
+                integration using Spring and enterprise Java frameworks.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Skillset &amp; tools</h5>
               <div className="what-content-flex">
                 <div className="what-tags">Java</div>
                 <div className="what-tags">Spring Boot</div>
@@ -101,34 +63,23 @@ const WhatIDo = () => {
                 <div className="what-tags">MySQL</div>
                 <div className="what-tags">JDBC</div>
               </div>
-              <div className="what-arrow"></div>
             </div>
+            <div className="what-arrow"></div>
           </div>
+
+          {/* Item 02 — IoT & Embedded */}
           <div
             className="what-content what-noTouch"
             ref={(el) => setRef(el, 1)}
           >
-            <div className="what-border1">
-              <svg height="100%">
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-              </svg>
-            </div>
-            <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>IOT &amp; EMBEDDED SYSTEMS</h3>
+              <h3>IoT &amp; Embedded Systems</h3>
               <h4>Bridging Software and Hardware</h4>
               <p>
-                Designing smart solutions and automation systems using IoT devices, Arduino, sensors, and embedded programming.
+                Designing smart solutions and automation systems using IoT
+                devices, Arduino, sensors, and embedded programming.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Skillset &amp; tools</h5>
               <div className="what-content-flex">
                 <div className="what-tags">Arduino</div>
                 <div className="what-tags">IoT Systems</div>
@@ -137,9 +88,10 @@ const WhatIDo = () => {
                 <div className="what-tags">Python</div>
                 <div className="what-tags">HTML / CSS / JS</div>
               </div>
-              <div className="what-arrow"></div>
             </div>
+            <div className="what-arrow"></div>
           </div>
+
         </div>
       </div>
     </div>
@@ -153,7 +105,6 @@ function handleClick(container: HTMLDivElement) {
   container.classList.remove("what-sibling");
   if (container.parentElement) {
     const siblings = Array.from(container.parentElement.children);
-
     siblings.forEach((sibling) => {
       if (sibling !== container) {
         sibling.classList.remove("what-content-active");

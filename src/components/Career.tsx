@@ -33,7 +33,7 @@ const Career = () => {
               <h3>2022–26</h3>
             </div>
             <p>
-              Graduated in Electronics and Communication Engineering with a GPA of 8.26. Developed expertise in microcontrollers, embedded programming, IoT system architecture, and core software engineering fundamentals.
+              Graduated in Electronics and Communication Engineering with a GPA of 8.4  developed expertise in microcontrollers, embedded programming, IoT system architecture, and core software engineering fundamentals.
             </p>
           </div>
         </div>
