@@ -1,10 +1,10 @@
-# 3D Portfolio Website
+# Mahek Tarannum — Developer Portfolio
 
-This repository contains the source code for a personal 3D portfolio built with React, TypeScript, Three.js, React Three Fiber, and GSAP. It includes animated page sections, a character scene, custom cursor interactions, and smooth transitions designed for a modern portfolio experience.
+A premium, text-driven, responsive dark-themed developer portfolio website styled in the **Mercury (Mountain Top Command Center)** design aesthetic. Built using React, TypeScript, Vite, Three.js, React Three Fiber, and GSAP.
 
-Live site: [https://akashrmalhotra.netlify.app/](https://akashrmalhotra.netlify.app/)
+Repository: [https://github.com/mahektarannum1-svg/3D-Portfolio](https://github.com/mahektarannum1-svg/3D-Portfolio)
 
-![Portfolio Preview](public/images/preview1.png)
+---
 
 ## Table of Contents
 
@@ -19,158 +19,124 @@ Live site: [https://akashrmalhotra.netlify.app/](https://akashrmalhotra.netlify.
 - [Deployment](#deployment)
 - [License](#license)
 
+---
+
 ## Features
 
-- Responsive one-page portfolio layout with reusable section components.
-- 3D character scene rendering powered by React Three Fiber and Three.js.
-- GSAP-powered animations and transitions for interactive storytelling.
-- Custom cursor, hover interactions, and scroll-driven visual effects.
-- Organized component architecture with dedicated utilities and style modules.
+- **Spacious & Immersive Dark UI**: Tailored with the Mercury design palette featuring deep space blacks, slate backgrounds, and a single violet-blue accent light (`#5266eb`) strictly reserved for primary actions.
+- **Interactive 3D Tech Stack**: An interactive physics-based 3D sphere canvas containing technology icons, powered by React Three Fiber and Rapier physics.
+- **GSAP-powered Transitions**: Smooth scroll effects and transitions.
+- **Custom Cursor & Micro-interactions**: Clean modern cursor trail and hover behaviors for navigation links and buttons.
+- **Authority Through Restraint**: Authorized yet approachable typography using spacious letter-spacing and light weights.
+
+---
 
 ## Tech Stack
 
 ### Core
-
 - React 18
 - TypeScript
 - Vite
 
 ### Animation and 3D
-
 - GSAP + `@gsap/react`
 - Three.js
 - `@react-three/fiber`
 - `@react-three/drei`
 - `@react-three/postprocessing`
-- `@react-three/cannon`
 - `@react-three/rapier`
 
 ### Supporting Libraries
-
 - `react-icons`
 - `react-fast-marquee`
 - `@vercel/analytics`
+
+---
 
 ## Project Structure
 
 ```text
 .
-├── public/                    # Static assets
+├── public/                    # Static assets & images
 ├── src/
-│   ├── assets/                # Local media/assets
+│   ├── assets/                # Media & global asset files
 │   ├── components/
-│   │   ├── Character/         # 3D scene + character logic/utilities
-│   │   ├── styles/            # Section/component CSS files
+│   │   ├── styles/            # Component/section-specific CSS files
+│   │   ├── utils/             # GSAP splitText and initial animations
 │   │   ├── About.tsx
 │   │   ├── Career.tsx
 │   │   ├── Contact.tsx
 │   │   ├── Landing.tsx
-│   │   ├── MainContainer.tsx  # Main page composition
+│   │   ├── MainContainer.tsx  # Layout coordinator
 │   │   ├── Navbar.tsx
-│   │   ├── TechStack.tsx
+│   │   ├── TechStack.tsx      # Physics-based R3F interactive scene
 │   │   ├── WhatIDo.tsx
 │   │   └── Work.tsx
 │   ├── context/               # Global providers (loading state, etc.)
-│   ├── data/                  # Static data/content definitions
 │   ├── App.tsx
 │   └── main.tsx
 ├── package.json
 └── vite.config.ts
 ```
 
+---
+
 ## Getting Started
 
 ### Prerequisites
-
-- Node.js 18+ (recommended)
-- npm 9+ (or compatible)
+- Node.js 18+
+- npm 9+
 
 ### Installation
 
 1. Clone the repository:
-
    ```bash
-   git clone <your-repository-url>
-   cd 3d-portfolio
+   git clone https://github.com/mahektarannum1-svg/3D-Portfolio.git
+   cd 3D-Portfolio
    ```
 
 2. Install dependencies:
-
    ```bash
    npm install
    ```
 
 3. Start the local development server:
-
    ```bash
    npm run dev
    ```
 
-4. Open the URL shown in the terminal (typically `http://localhost:5173`).
+4. Open the localhost URL in your browser (typically `http://localhost:5173` or `http://localhost:5174`).
+
+---
 
 ## Available Scripts
 
-- `npm run dev`  
-  Starts Vite dev server and exposes host for local network testing.
+- `npm run dev` — Starts Vite dev server.
+- `npm run build` — Compiles TypeScript and builds a production bundle.
+- `npm run preview` — Serves production build locally for verification.
+- `npm run lint` — Runs ESLint code-quality checks.
 
-- `npm run build`  
-  Type-checks and builds a production-ready bundle.
-
-- `npm run preview`  
-  Serves the production build locally for verification.
-
-- `npm run lint`  
-  Runs ESLint checks across the project.
-
-## GSAP License Note
-
-This project uses the standard `gsap` package, including bonus plugins now available in the core package.
-
-- Install dependencies with `npm install`.
-- If migrating from older setups, remove `gsap-trial` from your project.
-
-Read official installation guidance here: [GSAP Installation Docs](https://gsap.com/docs/v3/Installation/)
+---
 
 ## Customization Guide
 
 You can adapt this portfolio to your own profile by updating the following areas:
+- **Content sections**: Edit components in `src/components/` (e.g., `About.tsx`, `Career.tsx`, `WhatIDo.tsx`, `Work.tsx`, and `Contact.tsx`).
+- **Styling & Tokens**: Modify custom theme properties in `src/index.css` and individual CSS modules in `src/components/styles/`.
+- **Interactive Tech Stack**: Add or update icons and properties inside `src/components/TechStack.tsx`.
 
-- **Content sections**: Edit files in `src/components/` such as `About.tsx`, `Career.tsx`, `WhatIDo.tsx`, and `Work.tsx`.
-- **Data source**: Update static values in files under `src/data/`.
-- **Styling**: Modify component styles in `src/components/styles/` and global styles in `src/index.css` / `src/App.css`.
-- **3D scene behavior**: Adjust scene logic in `src/components/Character/` and related utilities.
-- **Animations**: Tweak GSAP utilities under `src/components/utils/`.
-
-## Troubleshooting
-
-- **Blank screen in development**  
-  Check browser console for module import errors and verify all dependencies are installed.
-
-- **3D performance issues on low-end devices**  
-  Reduce scene complexity and post-processing effects in the character/scene utilities.
-
-- **GSAP plugin errors**  
-  Ensure you have the correct plugin package and license configuration for your target environment.
-
-- **TypeScript build failures**  
-  Run `npm run build` and address reported type errors before deploying.
+---
 
 ## Deployment
 
 1. Create a production build:
-
    ```bash
    npm run build
    ```
+2. Deploy the generated `dist/` directory to Vercel, Netlify, or Cloudflare Pages.
 
-2. Validate locally:
-
-   ```bash
-   npm run preview
-   ```
-
-3. Deploy the generated `dist/` folder to your hosting provider (for example Vercel, Netlify, or Cloudflare Pages).
+---
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open-source and available under the [MIT License](LICENSE).
