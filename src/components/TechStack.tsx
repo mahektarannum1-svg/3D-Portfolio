@@ -10,6 +10,7 @@ import {
   CylinderCollider,
   RapierRigidBody,
 } from "@react-three/rapier";
+import { FloatingDock } from "./FloatingDock";
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
@@ -166,6 +167,20 @@ const TechStack = () => {
     );
   }, []);
 
+  const techItems = [
+    { title: "HTML5", icon: "🌐" },
+    { title: "CSS3", icon: "🎨" },
+    { title: "JavaScript", icon: "⚡" },
+    { title: "Java", icon: "☕" },
+    { title: "Python", icon: "🐍" },
+    { title: "Spring Boot", icon: "🍃" },
+    { title: "Spring Framework", icon: "🌱" },
+    { title: "MySQL", icon: "🐬" },
+    { title: "Oracle", icon: "🔴" },
+    { title: "Rest API", icon: "🔌" },
+    { title: "JDBC", icon: "🔗" },
+  ];
+
   return (
     <div className="techstack">
       <h2 className="title"> My Techstack</h2>
@@ -207,6 +222,7 @@ const TechStack = () => {
           <N8AO color="#171721" aoRadius={2} intensity={1.15} />
         </EffectComposer>
       </Canvas>
+      <FloatingDock items={techItems} />
     </div>
   );
 };

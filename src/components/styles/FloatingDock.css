@@ -1,0 +1,114 @@
+/* ── Floating Dock — Mercury Theme ── */
+.floating-dock-wrapper {
+  position: absolute;
+  bottom: var(--spacing-40);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  pointer-events: auto;
+}
+
+.floating-dock-container {
+  display: flex;
+  align-items: flex-end;
+  height: 64px;
+  gap: var(--spacing-12);
+  padding: 0 var(--spacing-16) var(--spacing-8) var(--spacing-16);
+  background: rgba(39, 39, 53, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(112, 112, 125, 0.25);
+  border-radius: var(--radius-3xl-2);
+  box-sizing: border-box;
+}
+
+.floating-dock-item-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(23, 23, 33, 0.55);
+  border: 1px solid rgba(112, 112, 125, 0.2);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  will-change: transform;
+}
+
+.floating-dock-item-wrapper:hover {
+  background: var(--surface-interactive);
+  border-color: var(--color-mercury-blue);
+}
+
+.floating-dock-icon {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* Tooltip */
+.floating-dock-tooltip {
+  position: absolute;
+  bottom: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--surface-interactive);
+  border: 1px solid var(--color-lead);
+  color: var(--color-starlight);
+  font-family: var(--font-arcadia);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-regular);
+  padding: var(--spacing-4) var(--spacing-12);
+  border-radius: var(--radius-containers);
+  white-space: nowrap;
+  pointer-events: none;
+  animation: tooltipFadeIn 0.15s ease-out forwards;
+  z-index: 100;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Responsive / Mobile Dock styling */
+@media screen and (max-width: 768px) {
+  .floating-dock-wrapper {
+    bottom: var(--spacing-24);
+    width: 90%;
+    max-width: 450px;
+  }
+  
+  .floating-dock-container {
+    height: 56px;
+    gap: var(--spacing-8);
+    padding: 0 var(--spacing-12) var(--spacing-6) var(--spacing-12);
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+    border-radius: var(--radius-xl);
+  }
+
+  .floating-dock-item-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+
+  .floating-dock-icon {
+    font-size: 18px;
+  }
+}
